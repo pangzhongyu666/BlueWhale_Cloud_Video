@@ -1,0 +1,16 @@
+server:
+  port:  8080   # 服务端口
+
+spring:
+  application:
+    name: gateway # 服务名称
+  profiles:
+    active: dev # 服务环境
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 14.103.139.54:8848 # nacos地址
+        config:
+          namespace: dev
+  config:
+    import: nacos:gateway-dev.yaml
