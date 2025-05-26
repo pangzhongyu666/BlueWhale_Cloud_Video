@@ -36,15 +36,14 @@
         <gson.version>2.6.2</gson.version>
         <mysql.version>8.0.27</mysql.version>
         <lombok.version>1.18.20</lombok.version>
-        <mybatisplus.version>3.5.1</mybatisplus.version>
+        <mybatisplus.version>3.5.5</mybatisplus.version>
         <hutool.version>5.7.17</hutool.version>
-        <druid.version>1.2.1</druid.version>
+        <druid.version>1.2.20</druid.version>
         <javacv.version>1.5.7</javacv.version>
-        <fastjson2.version>2.0.36</fastjson2.version>
         <guava.version>31.1-jre</guava.version>
         <io.projectreactor.version>3.3.6.RELEASE</io.projectreactor.version>
         <rocketmq-spring-boot-starter.version>2.2.3</rocketmq-spring-boot-starter.version>
-        <mybatis-spring-boot-starter.version>2.2.2</mybatis-spring-boot-starter.version>
+        <mybatis-spring-boot-starter.version>3.0.3</mybatis-spring-boot-starter.version>
         <qiniu.version>7.2.7</qiniu.version>
         <redisson.version>3.16.3</redisson.version>
         <elasticsearch.version>7.12.1</elasticsearch.version>
@@ -85,11 +84,10 @@
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-            <!--             fastjson2 -->
             <dependency>
-                <groupId>com.alibaba.fastjson2</groupId>
-                <artifactId>fastjson2</artifactId>
-                <version>${fastjson2.version}</version>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.83</version> <!-- 建议使用最新的稳定版本 -->
             </dependency>
             <!--             reactor-test -->
             <dependency>
@@ -120,12 +118,6 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
-            </dependency>
-            <!-- rocketmq -->
-            <dependency>
-                <groupId>org.apache.rocketmq</groupId>
-                <artifactId>rocketmq-spring-boot-starter</artifactId>
-                <version>${rocketmq-spring-boot-starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>

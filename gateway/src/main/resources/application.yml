@@ -33,9 +33,5 @@ spring:
           predicates:
             - Path=/api/search/**
 logging:
-  level:
-    com:
-      sky:
-        mapper: debug
-        service: info
-        controller: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
