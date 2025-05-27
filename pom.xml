@@ -44,7 +44,6 @@
         <io.projectreactor.version>3.3.6.RELEASE</io.projectreactor.version>
         <rocketmq-spring-boot-starter.version>2.2.3</rocketmq-spring-boot-starter.version>
         <mybatis-spring-boot-starter.version>3.0.3</mybatis-spring-boot-starter.version>
-        <qiniu.version>7.2.7</qiniu.version>
         <redisson.version>3.16.3</redisson.version>
         <elasticsearch.version>7.12.1</elasticsearch.version>
         <jasypt-spring-boot-starter.version>3.0.4</jasypt-spring-boot-starter.version>
