@@ -25,9 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * @author c'y'x
- */
 @Service
 @Slf4j
 public class VideoDoLikeServiceImpl implements VideoDoLikeService {
@@ -35,8 +32,6 @@ public class VideoDoLikeServiceImpl implements VideoDoLikeService {
     DbOpsService dbOpsService;
     @Resource
     StringRedisTemplate stringRedisTemplate;
-    @Resource
-    MongoTemplate mongoTemplate;
     @Resource
     VideoUploadService videoUploadService;
     @Resource
