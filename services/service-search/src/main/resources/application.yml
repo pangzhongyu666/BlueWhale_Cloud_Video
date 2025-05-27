@@ -12,11 +12,9 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
 
-redisson:
-  address: redis://14.103.139.54:6379
 
 server:
-  port: 8081   # 服务端口
+  port: 8083   # 服务端口
 
 spring:
   datasource:
@@ -39,3 +37,18 @@ spring:
     virtual-host: /bluewhale
     username: root
     password: 123456
+    listener:
+      simple:
+        prefetch: 1 # 每次拉取的消息数量,处理完
+        concurrency: 10 # 消费者并发数量,处理完
+        max-concurrency: 100 # 消费者最大并发数量
+
+        acknowledgement-mode: auto # 消息确认模式,auto自动确认,manual手动确认,none不确认
+        retry:
+          enabled: true # 开启重试
+          max-attempts: 3 # 最大重试次数
+          initial-interval: 1000 # 重试间隔时间
+          mutiplier: 1 # 重试间隔时间倍数
+elasticsearch:
+  host: 14.103.139.54
+  port: 9200

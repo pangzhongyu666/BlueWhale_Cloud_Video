@@ -20,6 +20,7 @@ import com.cloud.bluewhale.utils.ThreadLocalUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import jakarta.annotation.Resource;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -51,8 +52,8 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Resource
     private VideoClient videoClient;
 
-    //@Resource
-    //private RocketMQTemplate rocketMQTemplate;
+    @Autowired
+    RabbitTemplate rabbitTemplate;
     /**
      * 获取用户个人信息
      * @param userId 用户id
@@ -133,7 +134,7 @@ public class UserInfoServiceImpl implements UserInfoService {
             throw new ErrorParamException("用户不存在！");
         }
         // 3. 发送消息到消息队列,ES索引库中更新用户信息
-        //rocketMQTemplate.convertAndSend("user_info", user);
+        rabbitTemplate.convertAndSend("search.exchange", "search.user", user);
         return ResponseResult.successResult();
     }
 

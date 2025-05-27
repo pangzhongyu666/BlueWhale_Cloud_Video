@@ -1,9 +1,6 @@
-spring:
-  profiles:
-    active: dev # 服务环境
-  cloud:
-    nacos:
-      config:
-        server-addr: 14.103.139.54:8848 # nacos配置中心地址
-        import:
-          - nacos:oss.yaml
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    accessKeyId: *
+    accessKeySecret: *
+    bucketName: bluewhale38

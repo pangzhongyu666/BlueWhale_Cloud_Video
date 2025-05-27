@@ -21,6 +21,7 @@ import com.cloud.bluewhale.video.vo.VideoInfo;
 import com.cloud.bluewhale.video.vo.VideoUploadVo;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -59,8 +60,8 @@ public class VideoUploadServiceImpl implements VideoUploadService {
     UserClient userClient;
     @Resource
     MongoTemplate mongoTemplate;
-//    @Resource
-//    RocketMQTemplate rocketMQTemplate;
+    @Autowired
+    RabbitTemplate rabbitTemplate;
 
     private static final int CORE_POOL_SIZE = 5;
     private static final int MAX_POOL_SIZE = 10;
@@ -121,7 +122,7 @@ public class VideoUploadServiceImpl implements VideoUploadService {
                 build();
         try {
             videoMapper.insert(video);
-            //rocketMQTemplate.convertAndSend("video_publish",video);
+            rabbitTemplate.convertAndSend("search.exchange","search.video",video);
             //将视频存储在对应videoId下
             String videoKey= VideoConstant.VIDEO_ID+video.getId().toString();
             stringRedisTemplate.opsForValue().set(videoKey, JSON.toJSONString(video));

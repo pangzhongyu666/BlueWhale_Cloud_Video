@@ -33,6 +33,12 @@ spring:
         max-idle: 50
         min-idle: 20
         max-wait: 5000
+  rabbitmq:
+    host: 14.103.139.54
+    port: 5672
+    virtual-host: /bluewhale
+    username: root
+    password: 123456
   data:
     mongodb:
       uri: mongodb://admin:123456@14.103.139.54:27017/bluewhale?authSource=admin
